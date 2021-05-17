@@ -27,13 +27,19 @@ export default {
      {
       id :1,
       text:'123',
-      day:'1',
+      day:'2 days left',
       reminder: true
      },
      {
-      id :1,
+      id :2,
       text:'421321',
-      day:'1',
+      day:'2 days left',
+      reminder: false
+     },
+     {
+      id :3,
+      text:'421321',
+      day:'2 days left',
       reminder: true
      },
     ]

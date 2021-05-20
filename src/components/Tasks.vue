@@ -5,7 +5,6 @@
 </template>
 
 <script>
-
 import Task from './Task'
 export default {
     name: 'Tasks',
@@ -15,9 +14,7 @@ export default {
     components: {
         Task
     }, 
-    emits: ['delte-task', 'toggle-reminder'],
+    emits: ['delete-task', 'toggle-reminder'],
 }
-
-
 
 </script>

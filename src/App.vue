@@ -39,39 +39,28 @@ export default {
       this.tasks = [...this.tasks, task]
     },
    
-deleteTask(id) {
-   if(confirm('Do you really want to delete this one?')) {
-      this.tasks = this.tasks.filter((task) => task.id !== id)
-    }
-},
+    deleteTask(id) {
+      if(confirm('Do you really want to delete this one?')) {
+          this.tasks = this.tasks.filter((task) => task.id !== id)
+        }
+    },
 
 toggleReminder (id) {
   this.tasks = this.tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task)
+},
+
+async fetchTasks () {
+    const res = await fetch('http://localhost:5000/tasks')
+    const data = await res.json()
+    return data
+  },
+async created () {
+  this.tasks =  await this.fetchTasks()
 }
   },
-  created() {
-    this.tasks = [
-     {
-      id :1,
-      text:'123',
-      day:'2 days left',
-      reminder: true
-     },
-     {
-      id :2,
-      text:'421321',
-      day:'2 days left',
-      reminder: false
-     },
-     {
-      id :3,
-      text:'421321',
-      day:'2 days left',
-      reminder: true
-     },
-    ]
-  }
+  
 }
+
 
 </script>
 
@@ -109,7 +98,5 @@ body {
   font-size: 15px;
   font-family: inherit;
 }
-
-
 
 </style>
